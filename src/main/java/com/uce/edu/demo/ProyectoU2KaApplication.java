@@ -14,6 +14,7 @@ public class ProyectoU2KaApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
+		//configuracion de logs// log4j
 		System.out.println("hola mundo");
 	}
 
