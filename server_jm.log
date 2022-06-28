@@ -7,3 +7,4 @@
 2022-06-27 20:01:47 INFO  root:49 - Persona [id=3, nombre=Romi, apellido=Ram]
 2022-06-27 20:02:05 INFO  root:49 - Persona [id=4, nombre=Romina, apellido=Ramirez]
 2022-06-27 20:03:48 INFO  root:49 - Persona [id=4, nombre=Xavier, apellido=Agullar]
+2022-06-27 21:32:49 INFO  root:97 - Estudiante [id=1, nombre=Xavier, apellido=Aguilar, correo=kevinjkevps4@gmail.com, edad=24]
