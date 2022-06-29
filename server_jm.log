@@ -8,3 +8,7 @@
 2022-06-27 20:02:05 INFO  root:49 - Persona [id=4, nombre=Romina, apellido=Ramirez]
 2022-06-27 20:03:48 INFO  root:49 - Persona [id=4, nombre=Xavier, apellido=Agullar]
 2022-06-27 21:32:49 INFO  root:97 - Estudiante [id=1, nombre=Xavier, apellido=Aguilar, correo=kevinjkevps4@gmail.com, edad=24]
+2022-06-28 18:31:25 INFO  root:58 - [Persona [id=3, nombre=Romi, apellido=Ram], Persona [id=4, nombre=Xavier, apellido=Agullar]]
+2022-06-28 18:32:21 INFO  root:58 - Lista: [Persona [id=3, nombre=Romi, apellido=Ram], Persona [id=4, nombre=Xavier, apellido=Agullar]]
+2022-06-28 18:38:19 INFO  root:58 - Lista: [Persona [id=4, nombre=Xavier, apellido=Agullar], Persona [id=3, nombre=Romi, apellido=Ram]]
+2022-06-28 19:47:23 INFO  root:105 - Dato con JPA: Persona [id=4, nombre=Xavier, apellido=Agullar]

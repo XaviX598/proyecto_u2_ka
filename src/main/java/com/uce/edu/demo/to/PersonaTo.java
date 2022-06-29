@@ -1,17 +1,17 @@
 package com.uce.edu.demo.to;
 
-public class Persona {
+public class PersonaTo {
 	
 	private int id;
 	private String nombre;
 	private String apellido;
 	
 	// constructor por defecto 
-	public Persona() {
+	public PersonaTo() {
 		
 	}
 	//constructor diferencte (con argumentos) al por defecto debemos tambien poner el por defecto
-	public Persona(int id, String nombre, String apellido) {
+	public PersonaTo(int id, String nombre, String apellido) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
