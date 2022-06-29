@@ -1,14 +1,14 @@
 package com.uce.edu.demo.estudiante.service;
 
-import com.uce.edu.demo.estudiante.to.Estudiante;
+import com.uce.edu.demo.estudiante.to.EstudianteTo;
 
 public interface IEstudianteService {
 	
-	public void ingresar(Estudiante e);
+	public void ingresar(EstudianteTo e);
 	
-	public Estudiante buscar(int id);
+	public EstudianteTo buscar(int id);
 	
-	public void actualizar(Estudiante e);
+	public void actualizar(EstudianteTo e);
 	
 	public void eliminar(int id);
 

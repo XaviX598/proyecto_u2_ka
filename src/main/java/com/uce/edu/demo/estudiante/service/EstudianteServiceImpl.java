@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.estudiante.repository.IEstudianteRepository;
-import com.uce.edu.demo.estudiante.to.Estudiante;
+import com.uce.edu.demo.estudiante.to.EstudianteTo;
 @Service
 public class EstudianteServiceImpl implements IEstudianteService{
 	
@@ -12,19 +12,19 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	private IEstudianteRepository iEstudianteRepository;
 
 	@Override
-	public void ingresar(Estudiante e) {
+	public void ingresar(EstudianteTo e) {
 		// TODO Auto-generated method stub
 		this.iEstudianteRepository.ingresar(e);
 	}
 
 	@Override
-	public Estudiante buscar(int id) {
+	public EstudianteTo buscar(int id) {
 		// TODO Auto-generated method stub
 		return this.iEstudianteRepository.buscar(id);
 	}
 
 	@Override
-	public void actualizar(Estudiante e) {
+	public void actualizar(EstudianteTo e) {
 		// TODO Auto-generated method stub
 		this.iEstudianteRepository.actualizar(e);
 	}
