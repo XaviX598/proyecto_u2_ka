@@ -1,5 +1,8 @@
 package com.uce.edu.demo;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -39,29 +42,7 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		Persona p = new Persona();
-//		p.setId(4);
-//		p.setNombre("Romi");
-//		p.setApellido("Ramirez");
-//		//insertar
-//		this.iPersonaJdbcService.guardar(p);
-//		
-//		//actualizar
-//		Persona p1= new Persona();
-//		p1.setId(4);
-//		p1.setNombre("Xavier");
-//		p1.setApellido("Agullar");
-//		this.iPersonaJdbcService.actualizar(p1);
-//
-//		// eliminar
-//		 this.iPersonaJdbcService.eliminar(2);
-//
-//		// buscar
-//		 this.iPersonaJdbcService.buscar(3);
-//		log.info(this.iPersonaJdbcService.buscar(4));
-//
-//		// buscar todos
-//		 log.info("Lista: " +this.iPersonaJdbcService.buscartodos());
+
 
 //		//jpa buscar
 //		
@@ -73,12 +54,30 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 		//per.setId(7);
 		per.setNombre("Pepe12");
 		per.setApellido("Matamoros");
-		this.iPersonaJpaService.guardar(per);
-//		
+		per.setGenero("M");
+		per.setCedula("545165454");
+		//this.iPersonaJpaService.guardar(per);
+		
+		
+		
+		//buscar por cedula
+		Persona Per1 =  this.iPersonaJpaService.buscarPorCedula("545165454");
+		//log.info("Persona encontrada: "+Per1);
+		
+		//buscar por apellido
+		List<Persona> listaPersona = this.iPersonaJpaService.buscarPorApellido("Matamoros") ;
+		for(Persona item : listaPersona) {
+			log.info("Personas buscadas por apellido: "+ item );
+		}
+		
+
+				
+				
+						
 //		//actualizar jpa
-		per.setId(7);
-		per.setNombre("Victoria");
-		per.setApellido("Velasco");
+//		per.setId(7);
+//		per.setNombre("Victoria");
+//		per.setApellido("Velasco");
 		//this.iPersonaJpaService.actualizar(per);
 //		
 //		//eliminar jpa
