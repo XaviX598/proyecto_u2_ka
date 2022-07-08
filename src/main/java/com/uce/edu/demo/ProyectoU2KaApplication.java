@@ -52,10 +52,10 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 		Persona per = new Persona();
 		//debido a secuancia no hace falta id
 		//per.setId(7);
-		per.setNombre("Pepe12");
-		per.setApellido("Matamoros");
-		per.setGenero("M");
-		per.setCedula("545165454");
+		per.setNombre("Rom");
+		per.setApellido("Aguilar");
+		per.setGenero("F");
+		per.setCedula("45612315");
 		//this.iPersonaJpaService.guardar(per);
 		
 		
@@ -69,6 +69,20 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 		for(Persona item : listaPersona) {
 			log.info("Personas buscadas por apellido: "+ item );
 		}
+		
+		//buscar por apellido
+		List<Persona> listaPersona1 = this.iPersonaJpaService.buscarPorGenero("F") ;
+		for(Persona item : listaPersona1) {
+			log.info("Personas buscadas por genero: "+ item );
+		}
+		
+		//buscar por apellido
+		List<Persona> listaPersona2 = this.iPersonaJpaService.buscarPorNombre("Rom") ;
+		for(Persona item : listaPersona2) {
+			log.info("Personas buscadas por nombre: "+ item );
+		}
+		
+		
 		
 
 				
