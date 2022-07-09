@@ -52,37 +52,45 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 		Persona per = new Persona();
 		//debido a secuancia no hace falta id
 		//per.setId(7);
-		per.setNombre("Rom");
-		per.setApellido("Aguilar");
+		per.setNombre("Carolina");
+		per.setApellido("Isasia");
 		per.setGenero("F");
-		per.setCedula("45612315");
+		per.setCedula("8884541");
 		//this.iPersonaJpaService.guardar(per);
 		
+		//actualizar por apellido
+//		int resultado=this.iPersonaJpaService.actualizarPorApellido("Femenino", "Matamoros");
+//		log.info("Cantidad de registros actualizados: "+resultado);
 		
+		//eliminar por genero
+		int resultado1=this.iPersonaJpaService.eliminarPorGenero("M");
+		log.info("Cantidad de registros eliminados: "+resultado1);
 		
-		//buscar por cedula
-		Persona Per1 =  this.iPersonaJpaService.buscarPorCedula("545165454");
-		//log.info("Persona encontrada: "+Per1);
-		
-		//buscar por apellido
-		List<Persona> listaPersona = this.iPersonaJpaService.buscarPorApellido("Matamoros") ;
-		for(Persona item : listaPersona) {
-			log.info("Personas buscadas por apellido: "+ item );
-		}
-		
-		//buscar por apellido
-		List<Persona> listaPersona1 = this.iPersonaJpaService.buscarPorGenero("F") ;
-		for(Persona item : listaPersona1) {
-			log.info("Personas buscadas por genero: "+ item );
-		}
-		
-		//buscar por apellido
-		List<Persona> listaPersona2 = this.iPersonaJpaService.buscarPorNombre("Rom") ;
-		for(Persona item : listaPersona2) {
-			log.info("Personas buscadas por nombre: "+ item );
-		}
-		
-		
+//		
+//		
+//		//buscar por cedula
+//		Persona Per1 =  this.iPersonaJpaService.buscarPorCedula("545165454");
+//		//log.info("Persona encontrada: "+Per1);
+//		
+//		//buscar por apellido
+//		List<Persona> listaPersona = this.iPersonaJpaService.buscarPorApellido("Matamoros") ;
+//		for(Persona item : listaPersona) {
+//			log.info("Personas buscadas por apellido: "+ item );
+//		}
+//		
+//		//buscar por apellido
+//		List<Persona> listaPersona1 = this.iPersonaJpaService.buscarPorGenero("F") ;
+//		for(Persona item : listaPersona1) {
+//			log.info("Personas buscadas por genero: "+ item );
+//		}
+//		
+//		//buscar por apellido
+//		List<Persona> listaPersona2 = this.iPersonaJpaService.buscarPorNombre("Rom") ;
+//		for(Persona item : listaPersona2) {
+//			log.info("Personas buscadas por nombre: "+ item );
+//		}
+//		
+//		
 		
 
 				
