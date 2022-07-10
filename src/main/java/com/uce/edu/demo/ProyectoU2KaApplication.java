@@ -1,7 +1,7 @@
 package com.uce.edu.demo;
 
-import java.util.Iterator;
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.estudiante.repository.IEstudianteJpaRepository;
-import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
 import com.uce.edu.demo.estudiante.service.IEstudianteJpaService;
 import com.uce.edu.demo.estudiante.service.IEstudianteService;
-import com.uce.edu.demo.repository.modelo.Persona;
+import com.uce.edu.demo.prueba.repository.modelo.Propietario;
+import com.uce.edu.demo.prueba.repository.modelo.Vehiculo;
+import com.uce.edu.demo.prueba.service.IMatriculaGestorService;
+import com.uce.edu.demo.prueba.service.IMatriculaService;
+import com.uce.edu.demo.prueba.service.IPropietarioService;
+import com.uce.edu.demo.prueba.service.IVehiculoService;
 import com.uce.edu.demo.service.IPersonaJdbcService;
 import com.uce.edu.demo.service.IPersonaJpaService;
 //import org.slf4j.LoggerFactory;
@@ -25,16 +28,22 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 	private static final Logger log = Logger.getRootLogger();
 
 //	@Autowired
+	private IMatriculaService iMatriculaService;
+
+	@Autowired
+	private IVehiculoService iVehiculoService;
+
+	@Autowired
+	private IPropietarioService iPropietarioService;
+
+//	@Autowired
 	private IPersonaJdbcService iPersonaJdbcService;
 
 	@Autowired
 	private IPersonaJpaService iPersonaJpaService;
 
-	@Autowired
-	private IEstudianteJpaService iEstudianteJpaService;
-
 //	@Autowired
-	private IEstudianteService iEstudianteService;
+	private IMatriculaGestorService iMatriculaGestorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU2KaApplication.class, args);
@@ -43,29 +52,59 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+	
+		// 1
+		Vehiculo v1 = new Vehiculo();
+		v1.setMarca("Kia");
+		v1.setPlaca("BBC3524");
+		v1.setPrecio(new BigDecimal(3000));
+		v1.setTipo("L");
+		//this.iVehiculoService.insertar(v1);
+
+		// 2
+		v1.setId(1);
+		v1.setPrecio(new BigDecimal(60000));
+		v1.setMarca("Kia");
+		v1.setPlaca("BBC3524");
+		v1.setTipo("L");
+		//this.iVehiculoService.actualizar(v1);
+	
+
+		// 3
+		Propietario p1 = new Propietario();
+		p1.setNombre("Pedro");
+		p1.setApellido("Pablo");
+		p1.setCedula("1845614564164");
+		p1.setFechaNacimiento(LocalDateTime.of(1998, 3, 5, 0, 0));
+		this.iPropietarioService.crear(p1);
+
+		// 4
+		this.iMatriculaGestorService.generar("1845614564164", "BBC3524");
+
+		// -------------------------------------------------------------------------------------------------
 
 //		//jpa buscar
 //		
-		//log.info("Dato con JPA: " + this.iPersonaJpaService.buscar(7));
+		// log.info("Dato con JPA: " + this.iPersonaJpaService.buscar(7));
 //		
 //		//jpa insertar
-		Persona per = new Persona();
-		//debido a secuancia no hace falta id
-		//per.setId(7);
-		per.setNombre("Carolina");
-		per.setApellido("Isasia");
-		per.setGenero("F");
-		per.setCedula("8884541");
-		//this.iPersonaJpaService.guardar(per);
-		
-		//actualizar por apellido
+//		Persona per = new Persona();
+//		// debido a secuancia no hace falta id
+//		// per.setId(7);
+//		per.setNombre("Carolina");
+//		per.setApellido("Isasia");
+//		per.setGenero("F");
+//		per.setCedula("8884541");
+		// this.iPersonaJpaService.guardar(per);
+
+		// actualizar por apellido
 //		int resultado=this.iPersonaJpaService.actualizarPorApellido("Femenino", "Matamoros");
 //		log.info("Cantidad de registros actualizados: "+resultado);
-		
-		//eliminar por genero
-		int resultado1=this.iPersonaJpaService.eliminarPorGenero("M");
-		log.info("Cantidad de registros eliminados: "+resultado1);
-		
+
+		// eliminar por genero
+//		int resultado1 = this.iPersonaJpaService.eliminarPorGenero("M");
+//		log.info("Cantidad de registros eliminados: " + resultado1);
+
 //		
 //		
 //		//buscar por cedula
@@ -91,51 +130,15 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 //		}
 //		
 //		
-		
 
-				
-				
-						
 //		//actualizar jpa
 //		per.setId(7);
 //		per.setNombre("Victoria");
 //		per.setApellido("Velasco");
-		//this.iPersonaJpaService.actualizar(per);
+//		 this.iPersonaJpaService.actualizar(per);
 //		
 //		//eliminar jpa
-		//this.iPersonaJpaService.eliminar(4);
-
-//		// jpa insertar
-//		Estudiante est = new Estudiante();
-//		est.setId();
-//		est.setNombre("Juanito");
-//		est.setApellido("Pereza");
-//		est.setCorreo("kkkashy@gmai.com");
-//		est.setEdad(25);
-//		//this.iEstudianteJpaService.ingresar(est);
-//		
-//		Estudiante est2 = new Estudiante();
-//		est2.setId(6);
-//		est2.setNombre("David");
-//		est2.setApellido("Moñazo");
-//		est2.setCorreo("ddm@gmai.com");
-//		est2.setEdad(23);
-//		//this.iEstudianteJpaService.ingresar(est2);
-//
-//		// jpa buscar
-//		log.info("Dato con JPA: " + this.iEstudianteJpaService.buscar(1));
-//
-//		// actualizar jpa
-//		Estudiante est1 = new Estudiante();
-//		est1.setId(1);
-//		est1.setNombre("Xavi");
-//		est1.setApellido("Aguilar");
-//		est1.setCorreo("kevinjkevps4@gmai.com");
-//		est1.setEdad(24);
-//		//this.iEstudianteJpaService.actualizar(est1);
-//
-//		// eliminar jpa
-//		//this.iEstudianteJpaService.eliminar(6);
+		// this.iPersonaJpaService.eliminar(4);
 
 	}
 

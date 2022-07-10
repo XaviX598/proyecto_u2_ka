@@ -43,3 +43,4 @@
 2022-07-08 13:25:07 INFO  root:82 - Personas buscadas por nombre: Persona [id=13, nombre=Rom, apellido=Aguilar, genero=F, cedula=45612315]
 2022-07-08 19:13:56 INFO  root:63 - Cantidad de registros actualizados: 4
 2022-07-08 19:39:08 INFO  root:67 - Cantidad de registros eliminados: 2
+2022-07-10 16:39:33 INFO  root:76 - Cantidad de registros eliminados: 2
