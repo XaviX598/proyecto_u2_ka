@@ -8,6 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
+import com.uce.edu.demo.estudiante.service.IEstudianteJpaService;
 import com.uce.edu.demo.prueba.service.IMatriculaGestorService;
 import com.uce.edu.demo.prueba.service.IMatriculaService;
 import com.uce.edu.demo.prueba.service.IPropietarioService;
@@ -42,6 +44,9 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 
 //	@Autowired
 	private IMatriculaGestorService iMatriculaGestorService;
+	
+	@Autowired
+	private IEstudianteJpaService iEstudianteJpaService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU2KaApplication.class, args);
@@ -49,6 +54,8 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
 
 //		// 1
 //		Vehiculo v1 = new Vehiculo();
@@ -85,13 +92,13 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 		// log.info("Dato con JPA: " + this.iPersonaJpaService.buscar(7));
 //		
 //		//jpa insertar
-		Persona per = new Persona();
+		//Persona per = new Persona();
 //		// debido a secuancia no hace falta id
 //		// per.setId(7);
-		per.setNombre("Rom");
-		per.setApellido("Aguilar");
-		per.setGenero("F");
-		per.setCedula("451234");
+//		per.setNombre("Rom");
+//		per.setApellido("Aguilar");
+//		per.setGenero("F");
+//		per.setCedula("451234");
 		 //this.iPersonaJpaService.guardar(per);
 
 		// actualizar por apellido
@@ -138,20 +145,46 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 		// this.iPersonaJpaService.eliminar(4);
 
 		// buscar por cedula TypedQuery
-		Persona PerTyped = this.iPersonaJpaService.buscarPorCedulaTyped("8884541");
-		log.info("Persona encontrada con typed: " + PerTyped);
-
-		// buscar por cedula NamedQuery
-		Persona PerNamed = this.iPersonaJpaService.buscarPorCedulaNamed("7848484");
-		log.info("Persona encontrada con Named: " + PerNamed);
-		// buscar por cedula TypedQuery y NamedQuery
-		Persona PerTypedNamed = this.iPersonaJpaService.buscarPorCedulaTypedNamed("45612315");
-		log.info("Persona encontrada con TypedQuery y NamedQuery: " + PerTypedNamed);
-		// buscar por nombre y apellido
+//		Persona PerTyped = this.iPersonaJpaService.buscarPorCedulaTyped("8884541");
+//		log.info("Persona encontrada con typed: " + PerTyped);
+//
+//		// buscar por cedula NamedQuery
+//		Persona PerNamed = this.iPersonaJpaService.buscarPorCedulaNamed("7848484");
+//		log.info("Persona encontrada con Named: " + PerNamed);
+//		// buscar por cedula TypedQuery y NamedQuery
+//		Persona PerTypedNamed = this.iPersonaJpaService.buscarPorCedulaTypedNamed("45612315");
+//		log.info("Persona encontrada con TypedQuery y NamedQuery: " + PerTypedNamed);
+//		// buscar por nombre y apellido
+//		
+//		List<Persona> listaPer= this.iPersonaJpaService.buscarPorNombreApellido("Rom", "Aguilar");
+//		for(Persona item : listaPer) {
+//			log.info("Personas buscadas por nombre y apellido: "+ item );
 		
-		List<Persona> listaPer= this.iPersonaJpaService.buscarPorNombreApellido("Rom", "Aguilar");
-		for(Persona item : listaPer) {
-			log.info("Personas buscadas por nombre y apellido: "+ item );
+		
+		//buscar por edad
+		List<Estudiante> est =  this.iEstudianteJpaService.buscarPorEdadTyped(20);
+		log.info("Estudiante encontrada por edad (Typed): " + est);
+		
+		//buscar por correo
+		Estudiante est1 = this.iEstudianteJpaService.buscarPorCorreoTyped("kevinjkevps4@gmai.com");
+		log.info("Estudiante encontrada con correo(Typed): " + est1);
+		
+		//buscar por nombre y apellido
+		List<Estudiante> est2 =  this.iEstudianteJpaService.buscarPorNombreApellidoNamed("Romina", "Ramirez");
+		log.info("Estudiante encontrada por nombre y apellido(Named): " + est2);
+		
+		//buscar por nombre y edad
+		List<Estudiante> est3 =  this.iEstudianteJpaService.buscarPorNombreEdadNamed("Juanito", 25);
+		log.info("Estudiante encontrada por nombre y edad(Named): " + est3);
+		
+		//buscar por apellido y edad
+		List<Estudiante> est4 =  this.iEstudianteJpaService.buscarPorApellidoEdadTypedNamed("Aguilar", 24);
+		log.info("Estudiante encontrada por apellido y edad(TypedNamed): " + est4);
+		
+		//buscar por nombre y correo
+		Estudiante est5 = this.iEstudianteJpaService.buscarPorNombreCorreoTypedNamed("Juanito", "kkkashy@gmai.com");
+		log.info("Estudiante encontrada con correo(TypedNamed): " + est5);
+		
 		}
 	}
-}
+//}
