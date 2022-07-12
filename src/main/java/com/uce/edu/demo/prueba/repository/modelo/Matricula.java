@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "matricula")
+//@Entity
+//@Table(name = "matricula")
 public class Matricula {
 	@Id
 	@Column(name = "matr_id")

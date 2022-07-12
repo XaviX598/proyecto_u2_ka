@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -57,6 +58,30 @@ public class PersonaJpaRepositoryImpl implements IPersonaJpaRepository {
 		// getSingle.... nos da un objeto de tipo Persona
 		return (Persona) jpqlQuery.getSingleResult();
 	}
+	
+	@Override
+	public Persona buscarPorCedulaTyped(String cedula) {
+		// TODO Auto-generated method stub
+		TypedQuery<Persona> miTypedQuery= this.entityManager.createQuery("SELECT p FROM Persona p WHERE p.cedula = :datoCedula", Persona.class);
+		miTypedQuery.setParameter("datoCedula", cedula);
+		return miTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public Persona buscarPorCedulaNamed(String cedula) {
+		// TODO Auto-generated method stub
+		Query myQuery=this.entityManager.createNamedQuery("Persona.buscarPorCedula");
+		myQuery.setParameter("datoCedula", cedula);
+		return (Persona) myQuery.getSingleResult();
+	}
+	
+	@Override
+	public Persona buscarPorCedulaTypedNamed(String cedula) {
+		// TODO Auto-generated method stub
+		TypedQuery<Persona> myQuery=this.entityManager.createNamedQuery("Persona.buscarPorCedula", Persona.class);
+		myQuery.setParameter("datoCedula", cedula);
+		return myQuery.getSingleResult();
+	}
 
 	@Override
 	public List<Persona> buscarPorGenero(String genero) {
@@ -90,6 +115,15 @@ public class PersonaJpaRepositoryImpl implements IPersonaJpaRepository {
 		return myQuery.executeUpdate();
 		
 	}
+	
+	@Override
+	public List<Persona> buscarPorNombreApellido(String nombre, String apellido) {
+		// TODO Auto-generated method stub
+		TypedQuery<Persona> myQuery=this.entityManager.createNamedQuery("Persona.buscarPorNombreApellido", Persona.class);
+		myQuery.setParameter("datoNombre", nombre);
+		myQuery.setParameter("datoApellido", apellido);
+		return myQuery.getResultList();
+	}
 
 	@Override
 	public int eliminarPorGenero(String genero) {
@@ -98,5 +132,9 @@ public class PersonaJpaRepositoryImpl implements IPersonaJpaRepository {
 		//executeUpdate  devuelve un entero que es el numero de eliminaciones que se hizo
 		return myQuery.executeUpdate();
 	}
+
+	
+
+	
 
 }
