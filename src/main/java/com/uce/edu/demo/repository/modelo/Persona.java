@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
@@ -15,12 +17,24 @@ import javax.persistence.Table;
 //para decir que la clase representa la tablla se utiliza anotaciones de javax.persistence
 @Table(name = "persona")
 
-@NamedQuery(name = "Persona.buscarPorCedula", query ="SELECT p FROM Persona p WHERE p.cedula = :datoCedula")
-@NamedQuery(name = "Persona.buscarPorNombreApellido", query ="SELECT p FROM Persona p WHERE p.nombre = :datoNombre AND p.apellido = :datoApellido")
- 
-/*@NamedQueries({
-		@NamedQuery(name = "Persona.buscarPorCedula", query = "SELECT p FROM Persona p WHERE p.cedula = :datoCedula"),
-		@NamedQuery(name = "Persona.buscarPorNombreApellido", query = "SELECT p FROM Persona p WHERE p.nombre = :datoNombre AND p.apellido = :datoApellido") })*/
+@NamedQuery(name = "Persona.buscarPorCedula", query = "SELECT p FROM Persona p WHERE p.cedula = :datoCedula")
+@NamedQuery(name = "Persona.buscarPorNombreApellido", query = "SELECT p FROM Persona p WHERE p.nombre = :datoNombre AND p.apellido = :datoApellido")
+//@NamedNativeQuery(name = "Persona.buscarPorcCedulaNative", query = "SELECT * FROM persona Where pers_cedula=:datoCedula", resultClass = Persona.class)
+//@NamedNativeQuery(name = "Persona.buscarPorcCedulaNativeApellido", query = "SELECT * FROM persona Where pers_cedula=:datoCedula", resultClass = Persona.class)
+
+@NamedNativeQueries({
+		@NamedNativeQuery(name = "Persona.buscarPorCedulaNative", query = "SELECT * FROM persona Where pers_cedula=:datoCedula", resultClass = Persona.class),
+		@NamedNativeQuery(name = "Persona.buscarPorCedulaNativeApellido", query = "SELECT * FROM persona Where pers_cedula=:datoCedula AND pers_apellido=:datoApellido", resultClass = Persona.class) })
+/*
+ * @NamedQueries({
+ * 
+ * @NamedQuery(name = "Persona.buscarPorCedula", query =
+ * "SELECT p FROM Persona p WHERE p.cedula = :datoCedula"),
+ * 
+ * @NamedQuery(name = "Persona.buscarPorNombreApellido", query =
+ * "SELECT p FROM Persona p WHERE p.nombre = :datoNombre AND p.apellido = :datoApellido"
+ * ) })
+ */
 public class Persona {
 
 	// para realizar el mapeo se una anotacion para cada atributo @Column( name =
