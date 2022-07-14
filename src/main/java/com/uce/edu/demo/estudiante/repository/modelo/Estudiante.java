@@ -2,8 +2,13 @@ package com.uce.edu.demo.estudiante.repository.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -12,18 +17,24 @@ import javax.persistence.Table;
 @NamedQuery(name = "Estudiante.buscarPorNombreEdad", query = "SELECT e FROM Estudiante e WHERE e.nombre = :datoNombre AND e.edad = :datoEdad")
 @NamedQuery(name = "Estudiante.buscarPorApellidoEdad", query = "SELECT e FROM Estudiante e WHERE e.apellido = :datoApellido AND e.edad = :datoEdad")
 @NamedQuery(name = "Estudiante.buscarPorNombreCorreo", query = "SELECT e FROM Estudiante e WHERE e.nombre = :datoNombre AND e.correo = :datoCorreo")
+
+@NamedNativeQueries({
+	@NamedNativeQuery(name = "Estudiante.buscarPorApellidoCorreoNative", query = "SELECT * FROM estudiante Where estu_apellido=:datoApellido AND estu_correo=:datoCorreo", resultClass = Estudiante.class),
+	@NamedNativeQuery(name = "Estudiante.buscarPorNombreNativeApellido", query = "SELECT * FROM estudiante Where estu_nombre=:datoNombre AND estu_apellido=:datoApellido", resultClass = Estudiante.class) })
 public class Estudiante {
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "estu_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estu_id_seq")
+	@SequenceGenerator(name = "estu_id_seq", sequenceName = "estu_id_seq", allocationSize = 1)
 	private Integer id;
-	@Column(name = "nombre")
+	@Column(name = "estu_nombre")
 	private String nombre;
-	@Column(name = "apellido")
+	@Column(name = "estu_apellido")
 	private String apellido;
-	@Column(name = "correo")
+	@Column(name = "estu_correo")
 	private String correo;
-	@Column(name = "edad")
+	@Column(name = "estu_edad")
 	private Integer edad;
 
 	@Override

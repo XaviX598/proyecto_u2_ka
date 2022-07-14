@@ -1,17 +1,19 @@
 package com.uce.edu.demo;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
 import com.uce.edu.demo.estudiante.service.IEstudianteJpaService;
 import com.uce.edu.demo.prueba.service.IMatriculaGestorService;
 import com.uce.edu.demo.prueba.service.IMatriculaService;
 import com.uce.edu.demo.prueba.service.IPropietarioService;
 import com.uce.edu.demo.prueba.service.IVehiculoService;
-import com.uce.edu.demo.repository.modelo.Persona;
 import com.uce.edu.demo.service.IPersonaJdbcService;
 import com.uce.edu.demo.service.IPersonaJpaService;
 
@@ -23,23 +25,8 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 
 	private static final Logger log = Logger.getRootLogger();
 
-//	@Autowired
-	private IMatriculaService iMatriculaService;
-
-	@Autowired
-	private IVehiculoService iVehiculoService;
-
-	@Autowired
-	private IPropietarioService iPropietarioService;
-
-//	@Autowired
-	private IPersonaJdbcService iPersonaJdbcService;
-
 	@Autowired
 	private IPersonaJpaService iPersonaJpaService;
-
-//	@Autowired
-	private IMatriculaGestorService iMatriculaGestorService;
 
 	@Autowired
 	private IEstudianteJpaService iEstudianteJpaService;
@@ -50,36 +37,6 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-//		// 1
-//		Vehiculo v1 = new Vehiculo();
-//		v1.setMarca("Kia");
-//		v1.setPlaca("BBC3524");
-//		v1.setPrecio(new BigDecimal(3000));
-//		v1.setTipo("L");
-//		//this.iVehiculoService.insertar(v1);
-//
-//		// 2
-//		v1.setId(1);
-//		v1.setPrecio(new BigDecimal(60000));
-//		v1.setMarca("Kia");
-//		v1.setPlaca("BBC3524");
-//		v1.setTipo("L");
-//		//this.iVehiculoService.actualizar(v1);
-//	
-//
-//		// 3
-//		Propietario p1 = new Propietario();
-//		p1.setNombre("Pedro");
-//		p1.setApellido("Pablo");
-//		p1.setCedula("1845614564164");
-//		p1.setFechaNacimiento(LocalDateTime.of(1998, 3, 5, 0, 0));
-//		this.iPropietarioService.crear(p1);
-//
-//		// 4
-//		this.iMatriculaGestorService.generar("1845614564164", "BBC3524");
-
-		// -------------------------------------------------------------------------------------------------
 
 //		//jpa buscar
 //		
@@ -154,13 +111,13 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 //		for(Persona item : listaPer) {
 //			log.info("Personas buscadas por nombre y apellido: "+ item );
 
-		// buscar por cedula Native
-		Persona personaNative = this.iPersonaJpaService.buscarPorCedulaNative("451234");
-		log.info("Persona encontrada con Native Query: " + personaNative);
-
-		// buscar por cedula Named Native
-		Persona personaNamedNative = this.iPersonaJpaService.buscarPorCedulaNamedNative("451234");
-		log.info("Persona encontrada con Named Native Query: " + personaNamedNative);
+//		// buscar por cedula Native
+//		Persona personaNative = this.iPersonaJpaService.buscarPorCedulaNative("451234");
+//		log.info("Persona encontrada con Native Query: " + personaNative);
+//
+//		// buscar por cedula Named Native
+//		Persona personaNamedNative = this.iPersonaJpaService.buscarPorCedulaNamedNative("451234");
+//		log.info("Persona encontrada con Named Native Query: " + personaNamedNative);
 
 //		//buscar por edad
 //		List<Estudiante> est =  this.iEstudianteJpaService.buscarPorEdadTyped(20);
@@ -185,7 +142,35 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 //		//buscar por nombre y correo
 //		Estudiante est5 = this.iEstudianteJpaService.buscarPorNombreCorreoTypedNamed("Juanito", "kkkashy@gmai.com");
 //		log.info("Estudiante encontrada con correo(TypedNamed): " + est5);
+
 //		
+
+
+
+		Estudiante es = new Estudiante();
+		es.setEdad(18);
+		es.setApellido("Juanito");
+		es.setNombre("Pereza");
+		es.setCorreo("juaaanp6@gmai.com");
+		 //this.iEstudianteJpaService.ingresar(es);
+
+		// buscar por correo Native
+		Estudiante estudianteNative = this.iEstudianteJpaService.buscarPorCorreoNative("kkkashy@gmai.com");
+		log.info("Estudiante encontrado con Native Query: " + estudianteNative);
+
+		// buscar por nombre Native
+		List<Estudiante> estudianteNative2 = this.iEstudianteJpaService.buscarPorNombreNative("Xavier");
+		log.info("Estudiante encontrado con Native Query: " + estudianteNative2);
+
+		// buscar por apellido correo Named Native
+		Estudiante estudianteNamedNative = this.iEstudianteJpaService.buscarPorApellidoCorreoNamedNative("Romina",
+				"rramires21@gamil.com");
+		log.info("Estudiante encontrado con Named Native Query: " + estudianteNamedNative);
+
+		// buscar por cedula Named Native
+		List<Estudiante> estudianteNamedNative2 = this.iEstudianteJpaService
+				.buscarPorNombreApellidoNamedNative("Xavier", "Aguilar");
+		log.info("Estudiante encontrado con Named Native Query: " + estudianteNamedNative2);
 	}
 }
 //}

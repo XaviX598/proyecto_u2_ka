@@ -73,4 +73,28 @@ public class EstudianteJpaServiceImpl implements IEstudianteJpaService{
 		return this.iEstudianteJpaRepository.buscarPorNombreCorreoTypedNamed(nombre, correo);
 	}
 
+	@Override
+	public Estudiante buscarPorCorreoNative(String correo) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteJpaRepository.buscarPorCorreoNative(correo);
+	}
+
+	@Override
+	public List<Estudiante> buscarPorNombreNative(String nombre) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteJpaRepository.buscarPorNombreNative(nombre);
+	}
+
+	@Override
+	public Estudiante buscarPorApellidoCorreoNamedNative(String apellido, String correo) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteJpaRepository.buscarPorApellidoCorreoNamedNative(apellido, correo);
+	}
+
+	@Override
+	public List<Estudiante> buscarPorNombreApellidoNamedNative(String nombre, String apellido) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteJpaRepository.buscarPorNombreApellidoNamedNative(nombre, apellido);
+	}
+
 }

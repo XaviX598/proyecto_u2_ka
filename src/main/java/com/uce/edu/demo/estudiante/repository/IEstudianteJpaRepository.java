@@ -18,6 +18,10 @@ public interface IEstudianteJpaRepository {
 	
 	public Estudiante buscarPorCorreoTyped(String correo);
 	
+	public Estudiante buscarPorCorreoNative(String correo);
+	
+	public List<Estudiante> buscarPorNombreNative(String nombre);
+	
 	public List<Estudiante>  buscarPorNombreApellidoNamed(String nombre, String apellido);
 	
 	public List<Estudiante>  buscarPorNombreEdadNamed(String nombre, int edad);
@@ -26,6 +30,9 @@ public interface IEstudianteJpaRepository {
 	
 	public Estudiante  buscarPorNombreCorreoTypedNamed(String nombre,String correo);
 	
+	public Estudiante buscarPorApellidoCorreoNamedNative(String apellido, String correo);
+	
+	public List<Estudiante> buscarPorNombreApellidoNamedNative(String nombre, String apellido);
 	
 
 }
