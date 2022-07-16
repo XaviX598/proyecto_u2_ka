@@ -1,13 +1,15 @@
 package com.uce.edu.demo;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
 import com.uce.edu.demo.estudiante.service.IEstudianteJpaService;
-import com.uce.edu.demo.repository.modelo.Persona;
 import com.uce.edu.demo.service.IPersonaJpaService;
 
 //import org.slf4j.LoggerFactory;
@@ -111,14 +113,23 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 //		Persona personaNamedNative = this.iPersonaJpaService.buscarPorCedulaNamedNative("451234");
 //		log.info("Persona encontrada con Named Native Query: " + personaNamedNative);
 
-		// buscar por cedula Criteria Api
-		Persona personaCriteriaApi = this.iPersonaJpaService.buscarPorCedulaCriteriaApi("45612315");
-		log.info("Persona encontrada con Crtiteria API: " + personaCriteriaApi);
+//		// buscar por cedula Criteria Api
+//		Persona personaCriteriaApi = this.iPersonaJpaService.buscarPorCedulaCriteriaApi("45612315");
+//		log.info("Persona encontrada con Crtiteria API: " + personaCriteriaApi);
+//
+//		// buscar por cedula Criteria Api
+//		Persona dinamicamenteCriteriaApi = this.iPersonaJpaService.buscarDinamicamente("Edison","Cayambe","M");
+//		log.info("Persona encontrada dinamicamente con Crtiteria API: " + dinamicamenteCriteriaApi);
 
-		// buscar por cedula Criteria Api
-		Persona dinamicamenteCriteriaApi = this.iPersonaJpaService.buscarDinamicamente("Edison","Cayambe","M");
-		log.info("Persona encontrada dinamicamente con Crtiteria API: " + dinamicamenteCriteriaApi);
+		// buscar Estudiantes dinamicamente 1
+		List<Estudiante> busquedaUno = this.iEstudianteJpaService.busquedaDinamicaNombreApellidoEdad("Xavier",
+				"Aguilar", 22);
+		log.info("Estudiante encontrado dinamicamente con Crtiteria API: " + busquedaUno);
 
+		// buscar Estudiantes dinamicamente 2
+		List<Estudiante> busquedaDos = this.iEstudianteJpaService.busquedaDinamicaIdCorreo(3,
+				"kevinjkevps4@gmail.com");
+		log.info("Estudiante encontrado dinamicamente con Crtiteria API: " + busquedaDos);
 	}
 }
 //}
