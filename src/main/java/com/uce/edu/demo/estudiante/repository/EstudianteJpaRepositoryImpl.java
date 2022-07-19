@@ -15,7 +15,11 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
+import com.uce.edu.demo.estudiante.repository.modelo.EstudianteContadoEdadApellido;
+import com.uce.edu.demo.estudiante.repository.modelo.EstudianteSencillo;
 import com.uce.edu.demo.repository.modelo.Persona;
+import com.uce.edu.demo.repository.modelo.PersonaContadorGenero;
+import com.uce.edu.demo.repository.modelo.PersonaSencilla;
 
 @Repository
 @Transactional
@@ -180,7 +184,6 @@ public class EstudianteJpaRepositoryImpl implements IEstudianteJpaRepository {
 
 		Predicate miPredicadoFinal = null;
 
-		
 		miPredicadoFinal = myCriteria.or(predicadoId, predicadoCorreo);
 
 		myQuery.select(myTabla).where(miPredicadoFinal);
@@ -188,6 +191,29 @@ public class EstudianteJpaRepositoryImpl implements IEstudianteJpaRepository {
 		TypedQuery<Estudiante> myQueryFinal = this.entityManager.createQuery(myQuery);
 
 		return myQueryFinal.getResultList();
+	}
+
+	@Override
+	public List<EstudianteSencillo> busquedaApellidoCorreo( String apellido) {
+		TypedQuery<EstudianteSencillo> myQuery = this.entityManager.createQuery(
+				"SELECT NEW com.uce.edu.demo.estudiante.repository.modelo.EstudianteSencillo( e.apellido,e.correo) FROM Estudiante e WHERE  e.apellido = :datoApellido",
+				EstudianteSencillo.class);
+		
+		myQuery.setParameter("datoApellido", apellido);
+		return myQuery.getResultList();
+	}
+
+	@Override
+	public List<EstudianteContadoEdadApellido> consultarEdadConApellido(String apellido) {
+		// sentencias de agregacion en base de datos
+		// numero de estudiantes con el mismo apellido agrupados por edad
+		// SELECT estu_genero, count(estu_genero)
+		// FROM public.estudiante WHERE estu_edad<=? group by pers_genero;
+		TypedQuery<EstudianteContadoEdadApellido> myQuery = this.entityManager.createQuery(
+				"SELECT NEW com.uce.edu.demo.estudiante.repository.modelo.EstudianteContadoEdadApellido(e.edad,COUNT(e.edad)) FROM Estudiante e  WHERE e.apellido = :datoApellido GROUP BY e.edad",
+				EstudianteContadoEdadApellido.class);
+		myQuery.setParameter("datoApellido", apellido);
+		return myQuery.getResultList();
 	}
 
 }

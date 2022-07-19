@@ -8,6 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
+import com.uce.edu.demo.estudiante.repository.modelo.EstudianteContadoEdadApellido;
+import com.uce.edu.demo.estudiante.repository.modelo.EstudianteSencillo;
 import com.uce.edu.demo.estudiante.service.IEstudianteJpaService;
 import com.uce.edu.demo.repository.modelo.PersonaContadorGenero;
 import com.uce.edu.demo.repository.modelo.PersonaSencilla;
@@ -122,17 +125,32 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 //		Persona dinamicamenteCriteriaApi = this.iPersonaJpaService.buscarDinamicamente("Edison","Cayambe","M");
 //		log.info("Persona encontrada dinamicamente con Crtiteria API: " + dinamicamenteCriteriaApi);
 
-//		buscar por apellido sencillo
-		List<PersonaSencilla> listaPersonaSencilla = this.iPersonaJpaService.buscarPorApellidoSenciloo("Aguilar");
-		for (PersonaSencilla perItem : listaPersonaSencilla) {
-			log.info("Perona encontrada mediante PersonaSencilla: " + perItem);
+////		buscar por apellido sencillo
+//		List<PersonaSencilla> listaPersonaSencilla = this.iPersonaJpaService.buscarPorApellidoSenciloo("Aguilar");
+//		for (PersonaSencilla perItem : listaPersonaSencilla) {
+//			log.info("Perona encontrada mediante PersonaSencilla: " + perItem);
+//		}
+//
+////		consultar numero de personaspor genero
+//		List<PersonaContadorGenero> listaPersonaGenero = this.iPersonaJpaService.consultarCantidadPorGenero();
+//		for (PersonaContadorGenero perItem : listaPersonaGenero) {
+//			log.info("Genero: " + perItem);
+//		}
+		
+		//buscar por apellido sencillo
+		List<EstudianteSencillo> listaEstudianteSencilla = this.iEstudianteJpaService.busquedaApellidoCorreo( "Aguilar");
+		for (EstudianteSencillo perItem : listaEstudianteSencilla) {
+			log.info("Estudiante encontrada mediante EstudianteSencillo: " + perItem);
 		}
 
-//		consultar numero de personaspor genero
-		List<PersonaContadorGenero> listaPersonaGenero = this.iPersonaJpaService.consultarCantidadPorGenero();
-		for (PersonaContadorGenero perItem : listaPersonaGenero) {
-			log.info("Genero: " + perItem);
+		//consultar numero de estudiantes con apellido
+		List<EstudianteContadoEdadApellido> listaEstudianteEdadApellido = this.iEstudianteJpaService.consultarEdadConApellido("Aguilar");
+		log.info("Con el apellido ingresados las edades son");
+		for (EstudianteContadoEdadApellido perItem : listaEstudianteEdadApellido) {
+			log.info( "Edad: " + perItem);
 		}
+		
+		
 	}
 }
 //}
