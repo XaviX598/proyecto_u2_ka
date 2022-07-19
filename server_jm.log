@@ -115,3 +115,8 @@
 2022-07-16 14:04:36 INFO  root:127 - Estudiante encontrado dinamicamente con Crtiteria API: [Estudiante [id=1, nombre=Xavier, apellido=Aguilar, correo=kevinjkevps4@gmail.com, edad=21], Estudiante [id=4, nombre=Pereza, apellido=Juanito, correo=kkkashy@gmai.com, edad=25]]
 2022-07-16 14:53:33 INFO  root:127 - Estudiante encontrado dinamicamente con Crtiteria API: [Estudiante [id=1, nombre=Xavier, apellido=Aguilar, correo=kevinjkevps4@gmail.com, edad=21], Estudiante [id=4, nombre=Pereza, apellido=Juanito, correo=kkkashy@gmai.com, edad=25]]
 2022-07-16 14:53:33 INFO  root:132 - Estudiante encontrado dinamicamente con Crtiteria API: [Estudiante [id=1, nombre=Xavier, apellido=Aguilar, correo=kevinjkevps4@gmail.com, edad=21]]
+2022-07-18 19:03:52 INFO  root:128 - Perona encontrada mediante PersonaSencilla: PersonaSencilla [nombre=Rom, apellido=Aguilar]
+2022-07-18 19:46:22 INFO  root:128 - Perona encontrada mediante PersonaSencilla: PersonaSencilla [nombre=Rom, apellido=Aguilar]
+2022-07-18 19:49:17 INFO  root:128 - Perona encontrada mediante PersonaSencilla: PersonaSencilla [nombre=Rom, apellido=Aguilar]
+2022-07-18 19:49:17 INFO  root:134 - Genero: PersonaContadorGenero [genero=M, numero=1]
+2022-07-18 19:49:17 INFO  root:134 - Genero: PersonaContadorGenero [genero=F, numero=5]

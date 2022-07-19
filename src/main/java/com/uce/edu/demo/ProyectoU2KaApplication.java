@@ -8,8 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.estudiante.repository.modelo.Estudiante;
 import com.uce.edu.demo.estudiante.service.IEstudianteJpaService;
+import com.uce.edu.demo.repository.modelo.PersonaContadorGenero;
+import com.uce.edu.demo.repository.modelo.PersonaSencilla;
 import com.uce.edu.demo.service.IPersonaJpaService;
 
 //import org.slf4j.LoggerFactory;
@@ -121,15 +122,17 @@ public class ProyectoU2KaApplication implements CommandLineRunner {
 //		Persona dinamicamenteCriteriaApi = this.iPersonaJpaService.buscarDinamicamente("Edison","Cayambe","M");
 //		log.info("Persona encontrada dinamicamente con Crtiteria API: " + dinamicamenteCriteriaApi);
 
-		// buscar Estudiantes dinamicamente 1
-		List<Estudiante> busquedaUno = this.iEstudianteJpaService.busquedaDinamicaNombreApellidoEdad("Xavier",
-				"Aguilar", 22);
-		log.info("Estudiante encontrado dinamicamente con Crtiteria API: " + busquedaUno);
+//		buscar por apellido sencillo
+		List<PersonaSencilla> listaPersonaSencilla = this.iPersonaJpaService.buscarPorApellidoSenciloo("Aguilar");
+		for (PersonaSencilla perItem : listaPersonaSencilla) {
+			log.info("Perona encontrada mediante PersonaSencilla: " + perItem);
+		}
 
-		// buscar Estudiantes dinamicamente 2
-		List<Estudiante> busquedaDos = this.iEstudianteJpaService.busquedaDinamicaIdCorreo(3,
-				"kevinjkevps4@gmail.com");
-		log.info("Estudiante encontrado dinamicamente con Crtiteria API: " + busquedaDos);
+//		consultar numero de personaspor genero
+		List<PersonaContadorGenero> listaPersonaGenero = this.iPersonaJpaService.consultarCantidadPorGenero();
+		for (PersonaContadorGenero perItem : listaPersonaGenero) {
+			log.info("Genero: " + perItem);
+		}
 	}
 }
 //}
