@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.repository.IEmpleadoRepository;
 import com.uce.edu.demo.repository.modelo.Empleado;
-//@Service
+@Service
 public class EmpleadoServiceImpl implements IEmpleadoService{
-//	@Autowired
-//	private IEmpleadoRepository iEmpleadoRepository;
-//
-//	@Override
-//	public void insertar(Empleado e) {
-//		// TODO Auto-generated method stub
-//		this.iEmpleadoRepository.insertar(e);
-//	}
+	@Autowired
+	private IEmpleadoRepository iEmpleadoRepository;
+
+	@Override
+	public void insertar(Empleado e) {
+		// TODO Auto-generated method stub
+		this.iEmpleadoRepository.insertar(e);
+	}
 
 }

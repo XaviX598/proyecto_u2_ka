@@ -195,3 +195,18 @@
 2022-07-19 18:54:04 INFO  root:150 - Edad: EstudianteContadoEdadApellido [edad=22, numero=5]
 2022-07-19 18:54:04 INFO  root:150 - Edad: EstudianteContadoEdadApellido [edad=24, numero=1]
 2022-07-19 18:54:04 INFO  root:150 - Edad: EstudianteContadoEdadApellido [edad=25, numero=1]
+2022-07-22 11:56:42 INFO  root:93 - El id del pasaporte corresponde a: null
+2022-07-22 12:00:02 INFO  root:93 - El id del pasaporte corresponde a: null
+2022-07-22 12:02:31 INFO  root:93 - El id del ciudadano corresponde a: null
+2022-07-22 12:07:25 INFO  root:93 - El id del pasaporte corresponde a: null
+2022-07-22 14:54:52 INFO  root:93 - El id del pasaporte corresponde a: Ciudadano [id=12, nombre=Pedro, apellido=Velasco, cedula=4894515164, fechaNacimiento=1999-02-01T03:00]
+2022-07-22 14:56:10 INFO  root:92 - El ciudadano con el id ingresado corresponde a: Ciudadano [id=13, nombre=Romina, apellido=Ramirez, cedula=789156, fechaNacimiento=2001-12-12T04:00]
+2022-07-22 14:56:10 INFO  root:93 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]
+2022-07-22 14:57:05 INFO  root:92 - El ciudadano con el id ingresado corresponde a: Ciudadano [id=13, nombre=Romina, apellido=Ramirez, cedula=789156, fechaNacimiento=2001-12-12T04:00]
+2022-07-22 14:57:05 INFO  root:93 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]
+2022-07-22 15:21:44 INFO  root:92 - El ciudadano con el id ingresado corresponde a: Ciudadano [id=13, nombre=Romina, apellido=Ramirez, cedula=789156, fechaNacimiento=2001-12-12T04:00]
+2022-07-22 15:21:44 INFO  root:93 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]
+2022-07-22 15:22:43 INFO  root:92 - El ciudadano con el id ingresado corresponde a: Ciudadano [id=13, nombre=Romina, apellido=Ramirez, cedula=789156, fechaNacimiento=2001-12-12T04:00]
+2022-07-22 15:22:43 INFO  root:93 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]
+2022-07-22 15:35:47 INFO  root:93 - El ciudadano con el id ingresado corresponde a: Ciudadano [id=12, nombre=Pedro, apellido=Velasco, cedula=4894515164, fechaNacimiento=1999-02-01T03:00]
+2022-07-22 15:35:47 INFO  root:94 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]

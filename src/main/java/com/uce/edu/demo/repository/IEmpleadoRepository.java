@@ -4,6 +4,6 @@ import com.uce.edu.demo.repository.modelo.Empleado;
 
 public interface IEmpleadoRepository {
 	
-	//public void insertar(Empleado e);
+	public void insertar(Empleado e);
 
 }
