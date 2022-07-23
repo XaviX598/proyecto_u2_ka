@@ -29,7 +29,7 @@ public class Pasaporte {
 	@Column(name="pasa_fecha_caducidad")
 	private LocalDateTime fechaCaducidad;
 	@OneToOne( cascade = CascadeType.ALL)
-	@JoinColumn(name = "ciud_id_ciudadanota")
+	@JoinColumn(name = "pasa_id_ciudadanota")
 	private Ciudadanota ciudadanota;
 	
 	@Override
