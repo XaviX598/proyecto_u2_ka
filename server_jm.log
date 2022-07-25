@@ -210,3 +210,5 @@
 2022-07-22 15:22:43 INFO  root:93 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]
 2022-07-22 15:35:47 INFO  root:93 - El ciudadano con el id ingresado corresponde a: Ciudadano [id=12, nombre=Pedro, apellido=Velasco, cedula=4894515164, fechaNacimiento=1999-02-01T03:00]
 2022-07-22 15:35:47 INFO  root:94 - El pasaporte con el id ingresado corresponde a: Pasaporte [id=4, numero=8462, fechaEmision=2022-07-20T17:00, fechaCaducidad=2026-07-20T17:00]
+2022-07-24 19:34:17 INFO  root:91 - sdadVideojuego [id=1, nombre=COD, genero=Shooters, valor=60]
+2022-07-24 19:34:34 INFO  root:92 - El id de la desarrolladora corrsponde a:Desarrolladora [id=2, nombre=Activision, fechaCreacion=1996-02-04T12:00, numeroEmpleados=1500]

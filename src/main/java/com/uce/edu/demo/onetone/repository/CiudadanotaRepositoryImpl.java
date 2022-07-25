@@ -24,7 +24,7 @@ public class CiudadanotaRepositoryImpl implements ICiudadanotaRepository{
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
 		Ciudadanota c = this.buscarPorId(id);
-		this.entityManager.remove(id);
+		this.entityManager.remove(c);
 	}
 
 	@Override
