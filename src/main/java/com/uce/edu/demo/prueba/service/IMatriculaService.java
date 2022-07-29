@@ -6,8 +6,4 @@ public interface IMatriculaService {
 	
 	public BigDecimal calcular(BigDecimal precio);
 	
-	
-	
-	
-
 }
